@@ -6,5 +6,5 @@ export const checkWordFound = (word:string, secret:string): boolean => {
 
 // Check contains the secret
 export const checkContainsLetter = (letter:string, secret:string): boolean => {
-    return false;
+    return letter !== '' && secret.indexOf(letter.toUpperCase()) !== -1;
 }

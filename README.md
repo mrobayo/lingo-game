@@ -29,6 +29,11 @@
     > yarn add --dev enzyme jest-enzyme enzyme-adapter-react-16
  ```
 
+ Add setupTest.ts
+ // TODO
+ 
+ 
+
 ## data-test attribute to test rendering
  ```	
  	$ yarn add --dev babel-plugin-react-remove-properties
