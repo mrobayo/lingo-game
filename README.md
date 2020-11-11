@@ -42,4 +42,6 @@
  ```
 
 
-## Config lints https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+## Config lints 
+  This configuration works:
+  https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project

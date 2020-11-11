@@ -1,11 +1,11 @@
-import { checkWordFound, checkContainsLetter } from "./index";
+import { checkWordFound, checkContainsLetter } from './index';
 
 describe('Checking Helper Functions', () => {
-    const secret: string = 'SAMPLE';
+    const secret = 'SAMPLE';
 
-    const emptyWord: string = '';
-    const wrongWord: string = 'WHATEVER';
-    const correctButSmall: string = 'sample';
+    const emptyWord = '';
+    const wrongWord = 'WHATEVER';
+    const correctButSmall = 'sample';
 
     test('empty word', () => {
         expect(checkWordFound(emptyWord, secret)).toBe(false);
@@ -19,11 +19,11 @@ describe('Checking Helper Functions', () => {
 });
 
 describe('Checking checkContainsLetter Functions', () => {
-    const secret: string = 'SAMPLE';
+    const secret = 'SAMPLE';
 
-    const emptyLetter: string = '';
-    const wrongLetter: string = 'w';
-    const correctLetter: string = 'e';
+    const emptyLetter = '';
+    const wrongLetter = 'w';
+    const correctLetter = 'e';
 
     test('empty letter', () => {
         expect(checkContainsLetter(emptyLetter, secret)).toBe(false);
@@ -32,6 +32,6 @@ describe('Checking checkContainsLetter Functions', () => {
         expect(checkContainsLetter(wrongLetter, secret)).toBe(false);
     });
     test('correct letter', () => {
-        expect(checkContainsLetter(correctLetter, secret)).toBe(true)
+        expect(checkContainsLetter(correctLetter, secret)).toBe(true);
     });
 });
