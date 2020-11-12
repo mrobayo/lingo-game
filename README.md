@@ -18,11 +18,19 @@
    Letter:  ______  [ TRY ]
    Word:    ______  [GUESS]
  ----------------------------
-      Attempts History
+      Attempt History
    A, L, Q, R, E
  ----------------------------
  ```
- 
+
+
+## Typescript & React
+
+ https://github.com/typescript-cheatsheets/react#reacttypescript-cheatsheets
+ https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
+ https://egghead.io/courses/use-typescript-to-develop-react-applications
+ https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935
+  
  
 ## Init Enzyme
 
