@@ -25,9 +25,15 @@
  
  
 ## Init Enzyme
+
+ trying this: 
+ https://medium.com/@feralamillo/create-react-app-typescript-testing-with-jest-and-enzyme-869fdba1bd3
+ 
  ```
     > yarn add --dev enzyme jest-enzyme enzyme-adapter-react-16
  ```
+
+    
 
  Add setupTest.ts
  // TODO
@@ -45,3 +51,16 @@
 ## Config lints 
   This configuration works:
   https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+
+
+## Jest
+  https://www.npmjs.com/package/ts-jest
+  https://basarat.gitbook.io/typescript/intro-1/jest
+
+ ```
+  $ yarn add --dev ts-jest @types/jest
+  $ yarn add --dev enzyme jest-enzyme @types/enzyme enzyme-adapter-react-16
+  $ yarn add --dev @types/enzyme-adapter-react-16  
+ ```
+
+
