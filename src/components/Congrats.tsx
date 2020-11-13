@@ -2,7 +2,7 @@ import React from 'react';
 
 export type CongratsProps = { success?: boolean };
 
-const Congrats = ({ success }: CongratsProps) => {
+const Congrats = ({ success }: CongratsProps): JSX.Element => {
     if (!success) {
         return <div data-test="component-congrats" />;
     }

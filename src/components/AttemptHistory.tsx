@@ -6,7 +6,7 @@ export type AttemptHistoryProps = {
     attemptHistory: Array<AttemptLetterType>;
 };
 
-const AttemptHistory = ({ attemptHistory }: AttemptHistoryProps) => {
+const AttemptHistory = ({ attemptHistory }: AttemptHistoryProps): JSX.Element => {
     let contents;
     if (attemptHistory.length === 0) {
         contents = <span data-test="component-try-message">Try a letter!</span>;
