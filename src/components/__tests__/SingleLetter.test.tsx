@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr } from '../test/testUtil';
-import SingleLetter, { LetterProps } from './SingleLetter';
+import { findByTestAttr } from '../../test/testUtil';
+import SingleLetter, { LetterProps } from '../SingleLetter';
 
 const defaultProps: LetterProps = {};
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr } from '../test/test-util';
-import AttemptHistory, { AttemptHistoryProps } from './AttemptHistory';
+import { findByTestAttr } from '../../test/testUtil';
+import AttemptHistory, { AttemptHistoryProps } from '../AttemptHistory';
 
 const defaultProps: AttemptHistoryProps = { attemptHistory: [] };
 

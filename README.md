@@ -10,13 +10,18 @@
       random letter and discounts 15 points.      
   
  ```
+ LINGO
  ----------------------------
                  Score:  100
  ----------------------------
     __  __  __  __  __  __            
  ----------------------------
-   Letter:  ______  [ TRY ]
-   Word:    ______  [GUESS]
+   Letter:              
+   A B C D E F G H I J K L M
+   N O P Q R S T U V X Y W Z
+ ----------------------------
+   Word:  ____________  
+                   [ GUESS ]
  ----------------------------
       Attempt History
    A, L, Q, R, E
@@ -26,7 +31,13 @@
 
 ## Typescript & React
 
+ Detailed guide:
+ https://github.com/piotrwitek/react-redux-typescript-guide
+ 
+ ---
+ Good Typescript Reference:
  https://github.com/typescript-cheatsheets/react#reacttypescript-cheatsheets
+ 
  https://github.com/typescript-cheatsheets/react-typescript-cheatsheet
  https://egghead.io/courses/use-typescript-to-develop-react-applications
  https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935
@@ -72,3 +83,6 @@
  ```
 
 
+# Redux
+
+  yarn add redux redux-thunk react-redux @types/react-redux
