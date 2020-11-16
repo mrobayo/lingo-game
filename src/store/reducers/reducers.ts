@@ -11,7 +11,7 @@ import {
 } from '../actions/types';
 
 export const initialState: LingoState = {
-    lingoScore: 100,
+    lingoScore: 0,
     secretWord: '',
     letterAttempts: [],
     wordGuessed: '',

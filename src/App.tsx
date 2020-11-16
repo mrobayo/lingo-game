@@ -11,6 +11,7 @@ import GuessWord from './components/GuessWord';
 import TryLetter from './components/TryLetter';
 import { GameStatus, LingoActionTypes } from './store/actions/types';
 import { startNewGame } from './store/actions/actions';
+import LingoScore from './components/LingoScore';
 
 const mapState = (state: RootState) => ({
     success: state.lingo.gameStatus === GameStatus.GAME_OVER,
@@ -40,10 +41,13 @@ function App(props: AppProps): JSX.Element {
     return (
         <div className="container">
             <header>
+                <aside className="float-right p-3 my-3">
+                    <button onClick={handleStartNewGame} className="btn btn-info mx-4">
+                        Start New Game
+                    </button>
+                    <LingoScore />
+                </aside>
                 <h1 className="display-2">Lingo</h1>
-                <button onClick={handleStartNewGame} className="btn btn-info">
-                    Start New Game
-                </button>
             </header>
             <section>
                 <WordMatch />

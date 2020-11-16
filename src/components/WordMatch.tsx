@@ -25,7 +25,7 @@ export type WordMatchProps = StateProps & DispatchProps; //{ isDisabled: boolean
 const WordMatch = ({ word, letterAttempts }: WordMatchProps): JSX.Element => {
     let contents;
     if (!word || word.length === 0) {
-        contents = 'no word to guess';
+        contents = <div className="text-muted">no word to guess</div>;
     } else {
         contents = word
             .split('')
