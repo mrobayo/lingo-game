@@ -1,8 +1,21 @@
 # Lingo 
  
- This is a typescript game app with REDUX, JEST & ENZYME.
+ This is a typescript game app with REDUX, JEST & ENZYME.  It is not complete yet. 
+ But, it's a good starting.  
  
- The game rules are:
+ TODO
+ ----
+ There are many things todo, but at least, first complete the game.
+ 
+  - Discount points with each letter.
+  - Modal msg if you win/loose  
+  - Request a new word (Use a async/await) to some service
+  - Register and Save your score.
+   
+  
+ 
+ 
+ Lingo game rules are:
    1. You start with a score 100.
    2. Each letter TRY discounts some points (5 constants, 10 vowels).
    3. Can only GUESS the word one time.
