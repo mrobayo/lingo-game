@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import { RootState } from './store';
 import './App.css';
@@ -8,20 +9,48 @@ import Congrats from './components/Congrats';
 import WordMatch from './components/WordMatch';
 import GuessWord from './components/GuessWord';
 import TryLetter from './components/TryLetter';
+import { GameStatus, LingoActionTypes } from './store/actions/types';
+import { startNewGame } from './store/actions/actions';
 
-function App(): JSX.Element {
+const mapState = (state: RootState) => ({
+    success: state.lingo.gameStatus === GameStatus.GAME_OVER,
+});
+const mapDispatch = (dispatch: Dispatch<LingoActionTypes>) => {
+    return {
+        startGame: (word: string, score: number) =>
+            dispatch(
+                startNewGame({
+                    lingoScore: 100,
+                    secretWord: 'TYPES',
+                }),
+            ),
+    };
+};
+
+type StateProps = ReturnType<typeof mapState>;
+type DispatchProps = ReturnType<typeof mapDispatch>;
+
+export type AppProps = StateProps & DispatchProps;
+
+function App(props: AppProps): JSX.Element {
     const letterAttempts = ['T', 'R', 'C', 'A', 'F', 'Y'];
+    const handleStartNewGame = () => {
+        props.startGame('new word', 100);
+    };
     return (
         <div className="container">
             <header>
                 <h1 className="display-2">Lingo</h1>
+                <button onClick={handleStartNewGame} className="btn btn-info">
+                    Start New Game
+                </button>
             </header>
             <section>
-                <WordMatch word="TYPESCRIPT" letterAttempts={letterAttempts} />
+                <WordMatch />
                 <hr />
-                <Congrats success={true} />
+                <Congrats success={props.success} />
                 <hr />
-                <GuessWord isDisabled={false} />
+                <GuessWord />
                 <hr />
                 <TryLetter />
                 <hr />
@@ -30,8 +59,4 @@ function App(): JSX.Element {
     );
 }
 
-const mapState = (state: RootState) => ({
-    ...state.lingo,
-});
-
-export default connect(mapState)(App);
+export default connect(mapState, mapDispatch)(App);

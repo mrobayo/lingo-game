@@ -1,4 +1,19 @@
-import { LETTER_ATTEMPT, LetterAttempt, LingoActionTypes, WORD_GUESSED, WordGuessed } from './types';
+import {
+    LETTER_ATTEMPT,
+    LetterAttempt,
+    LingoActionTypes,
+    START_NEW_GAME,
+    NewGame,
+    WORD_GUESSED,
+    WordGuessed,
+} from './types';
+
+export function startNewGame(newGame: NewGame): LingoActionTypes {
+    return {
+        type: START_NEW_GAME,
+        payload: newGame,
+    };
+}
 
 export function tryLetter(letterAttempt: LetterAttempt): LingoActionTypes {
     return {

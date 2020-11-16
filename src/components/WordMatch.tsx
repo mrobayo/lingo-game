@@ -1,7 +1,26 @@
 import React from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+
+import { GameStatus, LingoActionTypes } from '../store/actions/types';
+import { guessWord } from '../store/actions/actions';
+import { RootState } from '../store';
 import SingleLetter from './SingleLetter';
 
-export type WordMatchProps = { word?: string; letterAttempts: string[] };
+const mapStateToProps = (state: RootState) => ({
+    word: state.lingo.secretWord,
+    letterAttempts: state.lingo.letterAttempts,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<LingoActionTypes>) => {
+    return {
+        onGuessWord: (word: string) => dispatch(guessWord({ word: word })),
+    };
+};
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = ReturnType<typeof mapDispatchToProps>;
+export type WordMatchProps = StateProps & DispatchProps; //{ isDisabled: boolean };
 
 const WordMatch = ({ word, letterAttempts }: WordMatchProps): JSX.Element => {
     let contents;
@@ -22,4 +41,4 @@ const WordMatch = ({ word, letterAttempts }: WordMatchProps): JSX.Element => {
     );
 };
 
-export default WordMatch;
+export default connect(mapStateToProps, mapDispatchToProps)(WordMatch);

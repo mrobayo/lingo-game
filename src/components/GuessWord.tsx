@@ -1,15 +1,34 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import { RootState } from '../store';
+import { GameStatus, LingoActionTypes } from '../store/actions/types';
+import { guessWord } from '../store/actions/actions';
 
-export type GuessWordProps = { isDisabled: boolean };
+const mapStateToProps = (state: RootState) => ({
+    isDisabled: state.lingo.gameStatus !== GameStatus.PLAYING,
+});
 
-const GuessWord: React.VFC<GuessWordProps> = ({ isDisabled }: GuessWordProps) => {
+const mapDispatchToProps = (dispatch: Dispatch<LingoActionTypes>) => {
+    return {
+        onGuessWord: (word: string) => dispatch(guessWord({ word: word })),
+    };
+};
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = ReturnType<typeof mapDispatchToProps>;
+export type GuessWordProps = StateProps & DispatchProps; //{ isDisabled: boolean };
+
+const GuessWord: React.VFC<GuessWordProps> = ({ isDisabled, onGuessWord }: GuessWordProps) => {
     const [text, setText] = useState('');
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
         setText(e.currentTarget.value);
     };
     const handleGuessWord = (): void => {
-        console.log('guess word');
+        // e: React.MouseEvent<HTMLButtonElement>
+        console.log('guess word', text);
+        onGuessWord(text);
     };
 
     return (
@@ -40,4 +59,4 @@ const GuessWord: React.VFC<GuessWordProps> = ({ isDisabled }: GuessWordProps) =>
     );
 };
 
-export default GuessWord;
+export default connect(mapStateToProps, mapDispatchToProps)(GuessWord);
