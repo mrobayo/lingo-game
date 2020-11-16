@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { lingoReducer } from './reducers/reducers';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     lingo: lingoReducer,
 });
 

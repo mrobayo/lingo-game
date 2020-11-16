@@ -1,10 +1,30 @@
 import React, { useState } from 'react';
+import { RootState } from '../store';
+import { connect } from 'react-redux';
+import { tryLetter } from '../store/actions/actions';
+import { Dispatch } from 'redux';
+import { LingoActionTypes } from '../store/actions/types';
 
-export type TryLetterProps = { isDisabled: boolean; letterAttempts: string[] };
+const mapStateToProps = (state: RootState) => ({
+    letterAttempts: state.lingo.letterAttempts,
+    isDisabled: !state.lingo.secretWord,
+});
 
-const TryLetter: React.VFC<TryLetterProps> = ({ isDisabled, letterAttempts = ['A', 'C'] }: TryLetterProps) => {
-    const handleTryLetter = (): void => {
-        console.log('try letter');
+const mapDispatchToProps = (dispatch: Dispatch<LingoActionTypes>) => {
+    return {
+        onTryLetter: (letter: string) => dispatch(tryLetter({ letter: letter })),
+    };
+};
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = ReturnType<typeof mapDispatchToProps>;
+
+export type TryLetterProps = StateProps & DispatchProps;
+
+const TryLetter: React.VFC<TryLetterProps> = (props: TryLetterProps) => {
+    const handleTryLetter = (e: React.MouseEvent<HTMLButtonElement>): void => {
+        const letter = e.currentTarget.innerText;
+        props.onTryLetter(letter);
     };
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -14,7 +34,7 @@ const TryLetter: React.VFC<TryLetterProps> = ({ isDisabled, letterAttempts = ['A
             key={index}
             onClick={handleTryLetter}
             className="col-md-1 col btn btn-info m-1"
-            disabled={letterAttempts.includes(letter)}
+            disabled={props.letterAttempts.includes(letter)}
         >
             {letter}
         </button>
@@ -33,4 +53,4 @@ const TryLetter: React.VFC<TryLetterProps> = ({ isDisabled, letterAttempts = ['A
     );
 };
 
-export default TryLetter;
+export default connect(mapStateToProps, mapDispatchToProps)(TryLetter);

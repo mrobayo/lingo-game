@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { RootState } from './store';
 import './App.css';
 
 import Congrats from './components/Congrats';
@@ -20,11 +23,15 @@ function App(): JSX.Element {
                 <hr />
                 <GuessWord isDisabled={false} />
                 <hr />
-                <TryLetter isDisabled={false} letterAttempts={letterAttempts} />
+                <TryLetter />
                 <hr />
             </section>
         </div>
     );
 }
 
-export default App;
+const mapState = (state: RootState) => ({
+    ...state.lingo,
+});
+
+export default connect(mapState)(App);

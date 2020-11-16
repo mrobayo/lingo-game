@@ -7,6 +7,7 @@ export interface LingoState {
     secretWord: string;
     letterAttempts: string[];
     wordGuessed: string;
+    gameStatus: string;
 }
 
 export interface LetterAttempt {
