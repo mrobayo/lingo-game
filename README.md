@@ -7,8 +7,9 @@
  ----
  There are many things todo, but at least, first complete the game.
  
-  - Discount points with each letter.
-  - Modal msg if you win/loose  
+  - Discount score with each letter.
+  - Implement HINTS
+  - Modal msg if you win/loose.  
   - Request a new word (Use a async/await) to some service
   - Register and Save your score.
    
@@ -98,4 +99,4 @@
 
 # Redux
 
-  yarn add redux redux-thunk react-redux @types/react-redux
+  yarn add redux react-redux @types/react-redux
