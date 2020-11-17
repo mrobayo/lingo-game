@@ -35,7 +35,6 @@ type DispatchProps = ReturnType<typeof mapDispatch>;
 export type AppProps = StateProps & DispatchProps;
 
 function App(props: AppProps): JSX.Element {
-    const letterAttempts = ['T', 'R', 'C', 'A', 'F', 'Y'];
     const handleStartNewGame = () => {
         props.startGame('new word', 100);
     };

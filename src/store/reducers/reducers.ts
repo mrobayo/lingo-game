@@ -25,6 +25,7 @@ export const lingoReducer = createReducer<LingoState, LingoActionTypes>(initialS
     .handleAction(actions.tryLetter, (state, action) => ({
         ...state,
         letterAttempts: [...state.letterAttempts, action.payload.letter],
+        lingoScore: state.lingoScore - action.payload.lostPoints,
     }))
     .handleAction(actions.guessWord, (state, action) => ({
         ...state,

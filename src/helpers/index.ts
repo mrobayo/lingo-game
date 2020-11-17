@@ -15,3 +15,5 @@ export const updateState = (oldState: object, updatedProperties: object): object
         ...updatedProperties,
     };
 };
+
+export const isVowelLetter = (letter: string): boolean => 'AEIOU'.indexOf(letter.toUpperCase()) !== -1;

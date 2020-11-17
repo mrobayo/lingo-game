@@ -24,6 +24,7 @@ export interface NewGame {
 
 export interface LetterAttempt {
     letter: string;
+    lostPoints?: number;
 }
 
 export interface WordGuessed {

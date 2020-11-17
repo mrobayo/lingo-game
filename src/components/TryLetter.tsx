@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import { tryLetter } from '../store/actions/actions';
 import { Dispatch } from 'redux';
 import { LingoActionTypes } from '../store/reducers/reducers';
+import { GameStatus } from '../store/actions/types';
 
 const mapStateToProps = (state: RootState) => ({
     letterAttempts: state.lingo.letterAttempts,
-    isDisabled: !state.lingo.secretWord,
+    isDisabled: state.lingo.gameStatus !== GameStatus.PLAYING,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<LingoActionTypes>) => {
@@ -26,15 +27,14 @@ const TryLetter: React.VFC<TryLetterProps> = (props: TryLetterProps) => {
         const letter = e.currentTarget.innerText;
         props.onTryLetter(letter);
     };
-
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const letters = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter, index) => (
         <button
             key={index}
             onClick={handleTryLetter}
-            className="col-md-1 col btn btn-info m-1"
-            disabled={props.letterAttempts.includes(letter)}
+            disabled={props.isDisabled || props.letterAttempts.includes(letter)}
+            className={`col-md-1 col btn m-1 btn-info`}
         >
             {letter}
         </button>

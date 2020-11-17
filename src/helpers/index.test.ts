@@ -1,4 +1,4 @@
-import { checkWordFound, checkContainsLetter } from './index';
+import { checkWordFound, checkContainsLetter, isVowelLetter } from './index';
 
 describe('Checking Helper Functions', () => {
     const secret = 'SAMPLE';
@@ -33,5 +33,14 @@ describe('Checking checkContainsLetter Functions', () => {
     });
     test('correct letter', () => {
         expect(checkContainsLetter(correctLetter, secret)).toBe(true);
+    });
+});
+
+describe('Checking isVowelLetter Functions', () => {
+    test('is vowel', () => {
+        expect(isVowelLetter('a')).toBe(true);
+    });
+    test('is not vowel', () => {
+        expect(isVowelLetter('c')).toBe(false);
     });
 });
