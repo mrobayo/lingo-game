@@ -22,14 +22,26 @@ export const lingoReducer = createReducer<LingoState, LingoActionTypes>(initialS
         lingoScore: action.payload.lingoScore,
         secretWord: action.payload.secretWord,
     }))
-    .handleAction(actions.tryLetter, (state, action) => ({
-        ...state,
-        letterAttempts: [...state.letterAttempts, action.payload.letter],
-        lingoScore: state.lingoScore - action.payload.lostPoints,
-    }))
+    .handleAction(actions.tryLetter, (state, action) => {
+        const lingoScore = state.lingoScore - action.payload.lostPoints;
+        const newState = {
+            letterAttempts: [...state.letterAttempts, action.payload.letter],
+            lingoScore: lingoScore > 0 ? lingoScore : 0,
+            gameStatus: lingoScore <= 0 ? GameStatus.GAME_OVER : state.gameStatus,
+        };
+
+        return {
+            ...state,
+            ...newState,
+        };
+    })
     .handleAction(actions.guessWord, (state, action) => ({
         ...state,
         wordGuessed: action.payload.word,
+    }))
+    .handleAction(actions.gameOver, (state, action) => ({
+        ...state,
+        gameStatus: GameStatus.GAME_OVER,
     }));
 
 /*
