@@ -3,7 +3,7 @@ import { RootState } from '../store';
 import { connect } from 'react-redux';
 import { tryLetter } from '../store/actions/actions';
 import { Dispatch } from 'redux';
-import { LingoActionTypes } from '../store/actions/types';
+import { LingoActionTypes } from '../store/reducers/reducers';
 
 const mapStateToProps = (state: RootState) => ({
     letterAttempts: state.lingo.letterAttempts,

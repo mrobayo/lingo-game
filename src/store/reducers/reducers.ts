@@ -1,14 +1,9 @@
-import {
-    GameStatus,
-    LETTER_ATTEMPT,
-    LetterAttempt,
-    LingoActionTypes,
-    LingoState,
-    WORD_GUESSED,
-    WordGuessed,
-    START_NEW_GAME,
-    NewGame,
-} from '../actions/types';
+import { createReducer, ActionType } from 'typesafe-actions';
+import { GameStatus, LingoState } from '../actions/types';
+
+import * as actions from '../actions/actions';
+
+export type LingoActionTypes = ActionType<typeof actions>;
 
 export const initialState: LingoState = {
     lingoScore: 0,
@@ -18,6 +13,25 @@ export const initialState: LingoState = {
     gameStatus: GameStatus.NEW_GAME,
 };
 
+export const lingoReducer = createReducer<LingoState, LingoActionTypes>(initialState)
+    .handleAction(actions.startNewGame, (state, action) => ({
+        ...state,
+        gameStatus: GameStatus.PLAYING,
+        wordGuessed: '',
+        letterAttempts: [],
+        lingoScore: action.payload.lingoScore,
+        secretWord: action.payload.secretWord,
+    }))
+    .handleAction(actions.tryLetter, (state, action) => ({
+        ...state,
+        letterAttempts: [...state.letterAttempts, action.payload.letter],
+    }))
+    .handleAction(actions.guessWord, (state, action) => ({
+        ...state,
+        wordGuessed: action.payload.word,
+    }));
+
+/*
 const startNewGame = (state: LingoState, newGame: NewGame): LingoState => {
     return {
         ...state,
@@ -54,4 +68,4 @@ export function lingoReducer(state = initialState, action: LingoActionTypes): Li
         default:
             return state;
     }
-}
+}*/

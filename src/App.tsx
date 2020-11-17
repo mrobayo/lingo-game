@@ -9,9 +9,10 @@ import Congrats from './components/Congrats';
 import WordMatch from './components/WordMatch';
 import GuessWord from './components/GuessWord';
 import TryLetter from './components/TryLetter';
-import { GameStatus, LingoActionTypes } from './store/actions/types';
+import { GameStatus } from './store/actions/types';
 import { startNewGame } from './store/actions/actions';
 import LingoScore from './components/LingoScore';
+import { LingoActionTypes } from './store/reducers/reducers';
 
 const mapState = (state: RootState) => ({
     success: state.lingo.gameStatus === GameStatus.GAME_OVER,

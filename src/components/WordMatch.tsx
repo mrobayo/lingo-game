@@ -2,10 +2,11 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { GameStatus, LingoActionTypes } from '../store/actions/types';
+import { GameStatus } from '../store/actions/types';
 import { guessWord } from '../store/actions/actions';
 import { RootState } from '../store';
 import SingleLetter from './SingleLetter';
+import { LingoActionTypes } from '../store/reducers/reducers';
 
 const mapStateToProps = (state: RootState) => ({
     word: state.lingo.secretWord,

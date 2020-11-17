@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { RootState } from '../store';
-import { GameStatus, LingoActionTypes } from '../store/actions/types';
+import { GameStatus } from '../store/actions/types';
 import { guessWord } from '../store/actions/actions';
+import { LingoActionTypes } from '../store/reducers/reducers';
 
 const mapStateToProps = (state: RootState) => ({
     isDisabled: state.lingo.gameStatus !== GameStatus.PLAYING,

@@ -1,13 +1,15 @@
-import {
-    LETTER_ATTEMPT,
-    LetterAttempt,
-    LingoActionTypes,
-    START_NEW_GAME,
-    NewGame,
-    WORD_GUESSED,
-    WordGuessed,
-} from './types';
+import { action, createAction } from 'typesafe-actions';
+import { LETTER_ATTEMPT, LetterAttempt, START_NEW_GAME, NewGame, WORD_GUESSED, WordGuessed } from './types';
 
+// With Typesafe-actions
+export const startNewGame = createAction(START_NEW_GAME, (newGame: NewGame) => newGame)();
+
+export const tryLetter = createAction(LETTER_ATTEMPT, (letterAttempt: LetterAttempt) => letterAttempt)();
+
+export const guessWord = createAction(WORD_GUESSED, (wordGuessed: WordGuessed) => wordGuessed)();
+
+// Old way
+/* -----------------------------------
 export function startNewGame(newGame: NewGame): LingoActionTypes {
     return {
         type: START_NEW_GAME,
@@ -28,3 +30,5 @@ export function guessWord(wordGuessed: WordGuessed): LingoActionTypes {
         payload: wordGuessed,
     };
 }
+* -----------------------------------
+*/

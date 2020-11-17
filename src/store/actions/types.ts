@@ -30,6 +30,7 @@ export interface WordGuessed {
     word: string;
 }
 
+/*
 // Start new Game
 interface StartNewGameAction {
     type: typeof START_NEW_GAME;
@@ -54,3 +55,4 @@ interface RequestHintAction {
 }
 
 export type LingoActionTypes = LetterAttemptAction | WordGuessedAction | RequestHintAction | StartNewGameAction;
+*/
