@@ -45,6 +45,8 @@
 
 ## Typescript & React
 
+ yarn create react-app lingo --template typescript
+
  Detailed guide:
  https://github.com/piotrwitek/react-redux-typescript-guide
  
@@ -100,3 +102,8 @@
 # Redux
 
   yarn add redux react-redux @types/react-redux
+
+
+# Random 
+  https://randommer.io/randommer-api
+  

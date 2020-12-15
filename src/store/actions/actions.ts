@@ -1,9 +1,21 @@
 import { action, createAction } from 'typesafe-actions';
-import { LETTER_ATTEMPT, LetterAttempt, START_NEW_GAME, NewGame, WORD_GUESSED, WordGuessed, GameStatus } from './types';
+import {
+    LETTER_ATTEMPT,
+    LetterAttempt,
+    SET_SECRET,
+    SetSecret,
+    START_NEW_GAME,
+    NewGame,
+    WORD_GUESSED,
+    WordGuessed,
+    GameStatus,
+} from './types';
 import { isVowelLetter } from '../../helpers';
 
 // With Typesafe-actions
 export const startNewGame = createAction(START_NEW_GAME, (newGame: NewGame) => newGame)();
+
+export const setSecret = createAction(SET_SECRET, (secret: SetSecret) => secret)();
 
 export const tryLetter = createAction(LETTER_ATTEMPT, (letterAttempt: LetterAttempt) => {
     const lostPoints = isVowelLetter(letterAttempt.letter) ? 10 : 5;

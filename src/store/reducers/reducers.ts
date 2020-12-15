@@ -42,6 +42,10 @@ export const lingoReducer = createReducer<LingoState, LingoActionTypes>(initialS
     .handleAction(actions.gameOver, (state, action) => ({
         ...state,
         gameStatus: GameStatus.GAME_OVER,
+    }))
+    .handleAction(actions.setSecret, (state, action) => ({
+        ...state,
+        secretWord: action.payload.secretWord,
     }));
 
 /*

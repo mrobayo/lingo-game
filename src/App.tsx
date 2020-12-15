@@ -23,7 +23,7 @@ const mapDispatch = (dispatch: Dispatch<LingoActionTypes>) => {
             dispatch(
                 startNewGame({
                     lingoScore: 100,
-                    secretWord: 'TYPES',
+                    secretWord: '',
                 }),
             ),
     };

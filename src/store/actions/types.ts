@@ -2,6 +2,7 @@ export const WORD_GUESSED = 'WORD_GUESSED';
 export const LETTER_ATTEMPT = 'LETTER_ATTEMPT';
 export const REQUEST_HINT = 'REQUEST_HINT';
 export const START_NEW_GAME = 'START_NEW_GAME';
+export const SET_SECRET = 'SET_SECRET';
 
 export enum GameStatus {
     NEW_GAME = 'NEW_GAME',
@@ -9,6 +10,7 @@ export enum GameStatus {
     GAME_OVER = 'GAME_OVER',
 }
 
+// Lingo App State (Redux)
 export interface LingoState {
     lingoScore: number;
     secretWord: string;
@@ -19,6 +21,10 @@ export interface LingoState {
 
 export interface NewGame {
     lingoScore: number;
+    secretWord: string;
+}
+
+export interface SetSecret {
     secretWord: string;
 }
 
